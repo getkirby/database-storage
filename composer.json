@@ -1,0 +1,69 @@
+{
+	"name": "getkirby/database-storage",
+	"description": "Kirby Database Storage",
+	"license": "MIT",
+	"type": "kirby-plugin",
+	"version": "1.0.0-alpha.1",
+	"keywords": [
+		"kirby",
+		"cms",
+		"database"
+	],
+	"authors": [
+		{
+			"name": "Bastian Allgeier",
+			"email": "bastian@getkirby.com"
+		},
+		{
+			"name": "Nico Hoffmann",
+			"email": "nico@getkirby.com"
+		}
+	],
+	"homepage": "https://getkirby.com",
+	"require": {
+		"php": ">=8.1.0",
+		"getkirby/cms": "^5.0",
+		"getkirby/composer-installer": "^1.2.1"
+	},
+	"require-dev": {
+		"ergebnis/composer-normalize": "^2.45",
+		"friendsofphp/php-cs-fixer": "^3.68",
+		"pestphp/pest": "^3.7",
+		"phpmd/phpmd": "^2.15",
+		"psalm/phar": "^6.12.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Kirby\\": "src/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
+			"getkirby/composer-installer": true,
+			"pestphp/pest-plugin": true
+		},
+		"optimize-autoloader": true
+	},
+	"extra": {
+		"installer-name": "database-storage",
+		"kirby-cms-path": false
+	},
+	"scripts": {
+		"analyze": [
+			"@analyze:composer:normalize",
+			"@analyze:composer:validate",
+			"@analyze:fix",
+			"@analyze:phpmd",
+			"@analyze:psalm"
+		],
+		"analyze:composer:normalize": "composer normalize --dry-run",
+		"analyze:composer:validate": "composer validate --strict --no-check-version --no-check-all",
+		"analyze:fix": "./vendor/bin/php-cs-fixer fix --diff --dry-run",
+		"analyze:phpmd": "./vendor/bin/phpmd . ansi phpmd.xml --exclude 'tests/*,vendor/*'",
+		"analyze:psalm": "./vendor/bin/psalm.phar",
+		"build": "./build.sh",
+		"fix": "./vendor/bin/php-cs-fixer fix",
+		"test": "./vendor/bin/pest"
+	}
+}

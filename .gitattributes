@@ -1,0 +1,12 @@
+# Git
+.gitattributes export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+
+# Development files
+composer.lock export-ignore
+
+# Tests
+.php-cs-fixer.dist.php export-ignore
+phpunit.xml export-ignore
+/tests export-ignore

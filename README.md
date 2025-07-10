@@ -5,6 +5,8 @@ Adds support for pages stored in a database.
 > [!IMPORTANT]  
 > This plugin is still in an early alpha state. Use with caution.
 
+<img width="1364" height="667" alt="database-storage" src="https://github.com/user-attachments/assets/65068f5a-9f54-4d51-b698-dcdc4c437078" />
+
 ## Features
 
 This plugin already provides good support for pages from databases, but has still some limitations. Here is a list of supported page features:

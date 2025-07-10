@@ -70,6 +70,24 @@ CREATE TABLE "comments" (
 );
 ```
 
+#### Create a table using the Kirby CLI
+
+If you are using the Kirby CLI, you can create a new table via the `table:create` command:
+
+````
+kirby table:create
+```
+
+You will be asked to specify the database connection, the table name and the list of custom fields.
+
+You can also provide database connection and table name immediately via arguments:
+
+````
+kirby table:create myDatabase myTable
+```
+
+`myDatabase` is referencing the config `key` for the database connection defined in your config (see below)
+
 ### Database Connection
 
 We need to define the connection to our database in the `/site/config/config.php` under the `database` key. The name for the connection can be defined by you, but needs to match later with the `DATABASE_NAME` constant in our page model (see below)
@@ -80,12 +98,12 @@ We need to define the connection to our database in the `/site/config/config.php
 use Kirby\Database\Database;
 
 return [
-	'database' => [
-		'comments' => new Database([
-			'type'     => 'sqlite',
-			'database' => dirname(__DIR__) . '/db/comments.sqlite'
-		])
-	]
+    'database' => [
+        'comments' => new Database([
+            'type'     => 'sqlite',
+            'database' => dirname(__DIR__) . '/db/comments.sqlite'
+        ])
+    ]
 ];
 ```
 
@@ -106,9 +124,9 @@ use Kirby\DatabaseStorage\HasDatabaseChildren;
 
 class CommentsPage extends Page
 {
-	use HasDatabaseChildren;
+    use HasDatabaseChildren;
 
-	public const DATABASE_CHILD_MODEL = CommentPage::class;
+    public const DATABASE_CHILD_MODEL = CommentPage::class;
 }
 ```
 
@@ -125,12 +143,12 @@ use Kirby\DatabaseStorage\DatabasePage;
 
 class CommentPage extends DatabasePage
 {
-	public const DATABASE_NAME = 'comments';
-	public const DATABASE_TABLE = 'comments';
-	public const DATABASE_FIELDS = [
-		'text',
-		'email',
-	];
+    public const DATABASE_NAME = 'comments';
+    public const DATABASE_TABLE = 'comments';
+    public const DATABASE_FIELDS = [
+        'text',
+        'email',
+    ];
 }
 ```
 

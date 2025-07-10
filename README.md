@@ -1,5 +1,10 @@
 # Kirby Database Storage Plugin
 
+Adds support for pages stored in a database. 
+
+> [!IMPORTANT]  
+> This plugin is still in an early alpha state. Use with caution.
+
 ## Installation
 
 ### Download

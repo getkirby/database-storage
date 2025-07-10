@@ -29,7 +29,7 @@ git submodule add https://github.com/getkirby/database-storage.git site/plugins/
 
 For this example, we are creating a new SQLite database in `/site/db` and call it `comments.sqlite`. But you can place it everywhere you like and then later change the path in the config. (see below)
 
-#### Required fields
+### Required fields
 
 Our database models require a couple core fields to work correctly:
 
@@ -55,31 +55,31 @@ Once all those columns are in place, you can add your own custom columns for cus
 
 Here's a full SQL query to create our comments database.
 
-```
+```sql
 CREATE TABLE "comments" (
-"id" INTEGER UNIQUE NOT NULL PRIMARY KEY ASC AUTOINCREMENT,
-"title" TEXT,
-"slug" TEXT NOT NULL,
-"uuid" TEXT NOT NULL,
-"created" TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
-"modified" TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
-"version" TEXT NOT NULL,
-"language" TEXT NOT NULL,
-"parent" TEXT,
-"template" TEXT,
-"num" INTEGER DEFAULT NULL,
-"lock" TEXT,
-"draft" INTEGER DEFAULT 1 NOT NULL
-"text" TEXT,
-"email" TEXT
+	"id" INTEGER UNIQUE NOT NULL PRIMARY KEY ASC AUTOINCREMENT,
+	"title" TEXT,
+	"slug" TEXT NOT NULL,
+	"uuid" TEXT NOT NULL,
+	"created" TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	"modified" TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	"version" TEXT NOT NULL,
+	"language" TEXT NOT NULL,
+	"parent" TEXT,
+	"template" TEXT,
+	"num" INTEGER DEFAULT NULL,
+	"lock" TEXT,
+	"draft" INTEGER DEFAULT 1 NOT NULL
+	"text" TEXT,
+	"email" TEXT
 );
 ```
 
-#### Create a table using the Kirby CLI
+### Create a table using the Kirby CLI
 
 If you are using the Kirby CLI, you can create a new table via the `table:create` command:
 
-````
+```bash
 kirby table:create
 ```
 
@@ -87,7 +87,7 @@ You will be asked to specify the database connection, the table name and the lis
 
 You can also provide database connection and table name immediately via arguments:
 
-````
+```bash
 kirby table:create myDatabase myTable
 ```
 

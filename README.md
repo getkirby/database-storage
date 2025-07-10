@@ -5,6 +5,28 @@ Adds support for pages stored in a database.
 > [!IMPORTANT]  
 > This plugin is still in an early alpha state. Use with caution.
 
+## Features
+
+This plugin already provides good support for pages from databases, but has still some limitations. Here is a list of supported page features:
+
+- [x] Content Changes & Translations
+- [x] Changing the page title
+- [x] Changing the slug
+- [x] Translating the slug
+- [x] Deleting pages
+- [x] Sorting pages
+- [x] Changing the page status
+- [ ] Duplicating pages
+- [ ] Moving pages
+- [ ] Changing templates
+
+### File support 
+
+Files are stored in the content folder. A folder for each page is created as soon as files are uploaded. The UUID is used as folder name. File information is still stored in text files and not yet in the database.
+
+> [!WARNING]  
+> This plugin requires UUIDs to be switched on
+
 ## Installation
 
 ### Download
@@ -155,6 +177,29 @@ class CommentPage extends DatabasePage
         'email',
     ];
 }
+```
+
+## Blueprints
+
+Once the models are set up correctly, you can define your blueprints and sections exactly like you would before: 
+
+**/site/blueprints/pages/comments.yaml**
+```yaml
+title: Comments
+sections:
+  comments:
+    type: pages
+    template: comment
+```
+
+**/site/blueprints/pages/comment.yaml**
+```yaml
+title: Comment
+fields:
+  text:
+    type: textarea
+  email:
+    type: email
 ```
 
 ## What’s Kirby?
